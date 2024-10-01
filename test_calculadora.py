@@ -2,24 +2,29 @@ import unittest
 from calculadora import Calculadora
 
 class TestCalculadora(unittest.TestCase):
-    def test_maior_numero_iguais(self):
-        resultado = Calculadora.maiorNumero(5, 5)
+    def test_maiorNumero_iguais(self):
+        calc = Calculadora(5, 5)
+        resultado = calc.maiorNumero()
         self.assertEqual(resultado, 'Os dois números são iguais')
 
-    def test_maior_numero_primeiro_maior(self):
-        resultado = Calculadora.maiorNumero(10, 5)
+    def test_maiorNumero_primeiro_maior(self):
+        calc = Calculadora(10, 5)
+        resultado = calc.maiorNumero()
         self.assertEqual(resultado, 'O maior número é 10')
 
-    def test_maior_numero_segundo_maior(self):
-        resultado = Calculadora.maiorNumero(5, 10)
+    def test_maiorNumero_segundo_maior(self):
+        calc = Calculadora(5, 10)
+        resultado = calc.maiorNumero()
         self.assertEqual(resultado, 'O maior número é 10')
 
     def test_somar(self):
-        resultado = Calculadora.somar(7, 3)
+        calc = Calculadora(7, 3)
+        resultado = calc.somar()
         self.assertEqual(resultado, 10)
 
     def test_diferenca(self):
-        resultado = Calculadora.diferenca(5, 10)
+        calc = Calculadora(5, 10)
+        resultado = calc.diferenca()
         self.assertEqual(resultado, 5)
 
 if __name__ == '__main__':

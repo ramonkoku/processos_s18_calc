@@ -1,18 +1,24 @@
 import tkinter
 from tkinter import ttk
-
 from calculadora import Calculadora
 
 def calcular():
-    texto_maior_numero = Calculadora.maiorNumero(numero1.get(), numero2.get())
-    resultado_maior_label.config(text = texto_maior_numero)
+    # Convertendo as entradas para inteiros
+    num1 = int(numero1.get())
+    num2 = int(numero2.get())
 
-    soma = Calculadora.somar(numero1.get(), numero2.get())
-    resultado_soma_label.config(text = f'A soma dos dois numeros e: {soma}')
+    # Criando a instância da classe Calculadora
+    calc = Calculadora(num1, num2)
 
-    diferenca = Calculadora.diferenca(numero1.get(), numero2.get())
-    resultado_diferenca_label.config(text = f'A diferença entre dois números é: {diferenca}')
-    
+    # Chamando os métodos da instância
+    texto_maior_numero = calc.maiorNumero()
+    resultado_maior_label.config(text=texto_maior_numero)
+
+    soma = calc.somar()
+    resultado_soma_label.config(text=f'A soma dos dois números é: {soma}')
+
+    diferenca = calc.diferenca()
+    resultado_diferenca_label.config(text=f'A diferença entre os dois números é: {diferenca}')
 
 # Criando a janela principal
 janela = tkinter.Tk()
@@ -29,7 +35,7 @@ numero2.pack()
 botao_calcular = ttk.Button(janela, text="Calcular", command=calcular)
 botao_calcular.pack()
 
-# Criando um label para mostrar o maior numero
+# Criando um label para mostrar o maior número
 resultado_maior_label = ttk.Label(janela, text="")
 resultado_maior_label.pack()
 
@@ -37,10 +43,9 @@ resultado_maior_label.pack()
 resultado_soma_label = ttk.Label(janela, text="")
 resultado_soma_label.pack()
 
-# Criando um label para mostrar a diferença entre os dois numeros
+# Criando um label para mostrar a diferença entre os dois números
 resultado_diferenca_label = ttk.Label(janela, text="")
 resultado_diferenca_label.pack()
-
 
 # Iniciando a aplicação
 janela.mainloop()

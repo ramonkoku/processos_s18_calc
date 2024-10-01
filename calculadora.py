@@ -1,16 +1,18 @@
 class Calculadora:
-    def somar(num1, num2):
-        pass
+    def __init__(self, numero1, numero2):
+        self.__numero1 = numero1  # Atributos privados
+        self.__numero2 = numero2
     
-    def maiorNumero(num1, num2):
-        if num1 == num2:
+    def maiorNumero(self):
+        if self.__numero1 == self.__numero2:
             return 'Os dois números são iguais'
-        if num1 > num2:
-            return f'O maior número é {num1}'
+        elif self.__numero1 > self.__numero2:
+            return f'O maior número é {self.__numero1}'
         else:
-            return f'O maior número é {num2}'
-        
-    def diferenca(numero1, numero2):
-        # Não importa a ordem
-        # o resultado da diferença deve ser positivo
-        pass
+            return f'O maior número é {self.__numero2}'
+    
+    def somar(self):
+        return self.__numero1 + self.__numero2
+    
+    def diferenca(self):
+        return abs(self.__numero1 - self.__numero2)
